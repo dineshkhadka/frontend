@@ -1,0 +1,284 @@
+@import 'reset';
+
+body {
+    background-color: #E5E5E5;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.section {
+    &+& {
+        margin-top: 100px;
+    }
+
+    &__header {
+        margin-bottom: 45px;
+    }
+
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+// Problem 1
+.rectangle {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+}
+
+.circle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #FF0000;
+}
+
+.icecream {
+    width: 0px;
+    height: 0px;
+    border-width: 13px 10px 0 10px;
+    border-style: solid;
+    position: relative;
+    border-color: #fff transparent transparent transparent;
+
+    &:after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FFF;
+        position: absolute;
+        bottom: calc(100% + 13px - 1px);
+        left: 50%;
+        transform: translateX(-50%)
+    }
+}
+
+
+// Problem 2
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+
+    @media screen and (max-width: 1440px) {
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
+    }
+
+    @media screen and (max-width: 1320px) {
+        grid-template-columns: repeat(2, minmax(320px, 1fr));
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__col {
+        // width: 25%;
+        border-right: 1px solid #999;
+        border-bottom: 1px solid #999;
+        padding: 10px;
+
+        @media screen and (min-width: 1440px) {
+            &:nth-child(4n+4) {
+                border-right: none;
+            }
+
+            &:nth-last-child(-n+4) {
+                border-bottom: none;
+            }
+        }
+
+        @media screen and (min-width: 1320px) and (max-width: 1440px) {
+            &:nth-child(3n+3) {
+                border-right: none;
+            }
+
+            &:nth-last-child(-n+3) {
+                border-bottom: none;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1320px) {
+            &:nth-child(2n+2) {
+                border-right: none;
+            }
+
+            &:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            border-left: none;
+            border-right: none;
+        }
+    }
+}
+
+.grid--flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    >* {
+        width: 25%;
+
+        @media screen and (max-width: 1440px) {
+            width: 33.333%;
+        }
+
+        @media screen and (max-width: 1320px) {
+            width: 50%;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+
+    }
+}
+
+.card {
+    background-color: rebeccapurple;
+    height: 100px;
+}
+
+
+// Problem 3
+
+.list {
+    >li {
+        list-style: decimal inside none;
+        padding: 20px 10px;
+
+        &::marker {
+            color: #333;
+        }
+
+        &:nth-child(odd) {
+            background-color: #EB4B23;
+            color: #FFF
+        }
+
+        &:nth-child(4n+4) {
+            background-color: #407D22;
+            color: #FFF
+        }
+    }
+}
+
+.field {
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 1px solid #999;
+}
+
+.ball {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #EB4B23;
+    animation: bounce infinite 1.5s ease-in-out;
+    animation-delay: 2s;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    70% {
+        transform: translateY(0);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+    0% {
+        transform: translateY(-150px);
+    }
+
+    35% {
+        transform: translateY(-70px);
+    }
+
+    60% {
+        transform: translateY(-30px);
+    }
+
+    80% {
+        transform: translateY(-15px);
+    }
+
+    97% {
+        transform: translateY(-7px);
+    }
+}
+
+.box-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -100%);
+}
+
+.box-action {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.start-animation {
+    background-color: royalblue;
+    padding: 8px 16px;
+    color: #FFF;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: rgb(42, 79, 189);
+    }
+}
