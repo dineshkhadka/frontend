@@ -1,4 +1,7 @@
 @import 'reset';
+@import 'colors';
+
+
 
 body {
     background-color: #E5E5E5;
@@ -58,19 +61,19 @@ body {
 .icecream {
     width: 0px;
     height: 0px;
-    border-width: 13px 10px 0 10px;
+    border-width: 26px 20px 0 20px;
     border-style: solid;
     position: relative;
     border-color: #fff transparent transparent transparent;
 
     &:after {
         content: '';
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background-color: #FFF;
         position: absolute;
-        bottom: calc(100% + 13px - 1px);
+        bottom: calc(100% + 26px);
         left: 50%;
         transform: translateX(-50%)
     }
@@ -82,12 +85,13 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(320px, 1fr));
+    background-color: #FFF;
 
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1320px) {
         grid-template-columns: repeat(3, minmax(320px, 1fr));
     }
 
-    @media screen and (max-width: 1320px) {
+    @media screen and (max-width: 1024px) {
         grid-template-columns: repeat(2, minmax(320px, 1fr));
     }
 
@@ -99,9 +103,9 @@ body {
         // width: 25%;
         border-right: 1px solid #999;
         border-bottom: 1px solid #999;
-        padding: 10px;
+        padding: 20px;
 
-        @media screen and (min-width: 1440px) {
+        @media screen and (min-width: 1320px) {
             &:nth-child(4n+4) {
                 border-right: none;
             }
@@ -111,7 +115,7 @@ body {
             }
         }
 
-        @media screen and (min-width: 1320px) and (max-width: 1440px) {
+        @media screen and (min-width: 1024px) and (max-width: 1320px) {
             &:nth-child(3n+3) {
                 border-right: none;
             }
@@ -121,7 +125,7 @@ body {
             }
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1320px) {
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
             &:nth-child(2n+2) {
                 border-right: none;
             }
@@ -145,11 +149,11 @@ body {
     >* {
         width: 25%;
 
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1320px) {
             width: 33.333%;
         }
 
-        @media screen and (max-width: 1320px) {
+        @media screen and (max-width: 1024px) {
             width: 50%;
         }
 
@@ -162,7 +166,44 @@ body {
 
 .card {
     background-color: rebeccapurple;
-    height: 100px;
+    height: 200px;
+
+    &--pink {
+        background-color: $pink;
+    }
+    &--cyan {
+        background-color: $cyan;
+    }
+    &--dark-pink {
+        background-color: $dark-pink;
+    }
+    &--blue {
+        background-color: $blue;
+    }
+    &--purple {
+        background-color: $purple;
+    }
+    &--brown {
+        background-color: $brown;
+    }
+    &--purple-dark {
+        background-color: $purple-dark;
+    }
+    &--purple-darker {
+        background-color: $purple-darker;
+    }
+    &--green {
+        background-color: $green;
+    }
+    &--brown-light {
+        background-color: $brown-light;
+    }
+    &--green-dark {
+        background-color: $green-dark;
+    }
+    &--black {
+        background-color: $black;
+    }
 }
 
 
@@ -172,7 +213,9 @@ body {
     >li {
         list-style: decimal inside none;
         padding: 20px 10px;
-
+        font-size: 20px;
+        font-weight: 500;
+        color: #323276;
         &::marker {
             color: #333;
         }
